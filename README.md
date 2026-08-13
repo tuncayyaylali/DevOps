@@ -52,3 +52,16 @@
         - Ne Demek? ARM Holdings tarafından geliştirilen, özellikle enerji verimliliği ve düşük güç tüketimi odaklı tasarlanmış 64-bit bir mimaridir.
         - Özellikleri: Akıllı telefonlar ve tabletlerde kullanılan ARM mimarisinin 64-bit sürümüdür. Son yıllarda sadece mobil cihazlarda değil, bilgisayarlarda da (Apple'ın M serisi işlemcileri, Snapdragon X Elite işlemcili yeni nesil dizüstü bilgisayarlar) yüksek performans ve uzun pil ömrü nedeniyle yoğun olarak kullanılmaktadır.
         - Kullanım Alanı: Akıllı telefonlar, tabletler, akıllı saatler ve modern ARM tabanlı dizüstü bilgisayarlar (Apple Mac'ler, bazı Windows PC'ler).
+
+## Ders 2 (13.08.2026)
+- Shell ve Terminal (21:39)
+    - Terminal, kullanıcı ile işletim sistemi arasında görsel bir köprü kuran fiziksel bir cihaz veya günümüzdeki adıyla bir terminal emülatörüdür (örneğin macOS'teki Terminal veya Linux'teki GNOME Terminal); temel görevi klavyeden girilen karakterleri toplamak, ekranda göstermek ve arka plandaki yazılıma iletmektir. Buna karşılık shell (kabuk) ise, işletim sisteminin çekirdeğiyle doğrudan iletişim kurarak komutlarınızı yorumlayan bir komut yorumlayıcısıdır (örneğin Bash, Zsh veya PowerShell). Özetle; terminal klavyeden basılan tuşları ekrana yansıtıp girdi/çıktı işlemlerini yöneten pencere veya arayüzü oluştururken, shell bu pencereye yazdığınız komutları anlamlandırıp işletim sisteminde çalıştıran ve kendi betik dili bulunan beyin görevini üstlenir.
+- ec2-user@ip-72-31-1-144 ~ (user@bilgisayar_adi mevcut konum)
+- cd / (Roota gider.)
+- **Binary Dosya**: Verilerin doğrudan bilgisayarın anlayacağı şekilde ikili sistem (0 ve 1'ler) formatında saklandığı, düz metin editörleriyle (Notepad gibi) açıldığında anlaşılmaz karakterler gösteren dosyalardır. Resimler, müzikler,çalıştırılabilir programlar (.exe vb.) ve sıkıştırılmış dosyalar bu türe girer.
+- rmdir (Boş klaösürü silmek için kullanılır.)
+- rm -rf (Dolu klasörü silmek için kullanılır.)
+- ls --help (Komut için yardım dosyalarını açar.)
+- man ls (Komut için yardım dosyalarını açar. Çıkmak için q)
+- cp deneme1 deneme2 (deneem1 dosya içeriğini deneme2 dosyasına kopyalar.)
+- mv -i dosyaadi1 dosyaadi2 (İNteraktif modda dosya işlemi yapar.)
