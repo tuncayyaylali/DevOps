@@ -65,3 +65,4 @@
 - man ls (Komut için yardım dosyalarını açar. Çıkmak için q)
 - cp deneme1 deneme2 (deneem1 dosya içeriğini deneme2 dosyasına kopyalar.)
 - mv -i dosyaadi1 dosyaadi2 (İNteraktif modda dosya işlemi yapar.)
+- 
