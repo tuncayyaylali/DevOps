@@ -65,4 +65,32 @@
 - man ls (Komut için yardım dosyalarını açar. Çıkmak için q)
 - cp deneme1 deneme2 (deneem1 dosya içeriğini deneme2 dosyasına kopyalar.)
 - mv -i dosyaadi1 dosyaadi2 (İNteraktif modda dosya işlemi yapar.)
-- 
+
+| Dizin | Adı / Anlamı | Özel ve Akılda Kalıcı Açıklaması |
+| --- | --- | --- |
+| **`/`** | Kök (Root) Dizin | Bütün sistemin doğduğu ve diğer her şeyin dallandığı **evrenin başlangıç noktasıdır**. |
+| **`/bin`** | Binaries (Komutlar) | Sistem yöneticisinin ve kullanıcıların sistemin açılması veya kurtarılması için ihtiyaç duyduğu **temel komutları** (ls, cp, bash vb.) saklar. |
+| **`/boot`** | Boot (Açılış) Dosyaları | Bilgisayarın açılmasını sağlayan çekirdek (**kernel**) ve önyükleyici (**GRUB**) dosyalarının evidir. |
+| **`/dev`** | Devices (Donanımlar) | Sabit diskler, klavye ve USB bellek gibi **tüm fiziksel donanımların birer dosya olarak temsil edildiği** özel alandır. |
+| **`/etc`** | Editable Text Configurations (Ayarlar) | Sistemdeki tüm programların ve kullanıcıların **ayar dosyalarının (konfigürasyonların)** toplandığı metin merkezidir. |
+| **`/home`** | Ev Sahipleri (Kullanıcılar) | Sizin ve diğer kullanıcıların **kişisel dosyalarının, masaüstünün ve indirmelerinin** tutulduğu özel yaşam alanıdır. |
+| **`/lib`** | Libraries (Kütüphaneler) | `/bin` ve `/sbin` içindeki programların çalışmak için ihtiyaç duyduğu **ortak kod kütüphanelerinin** bulunduğu yerdir. |
+| **`/media`** | Medya (Çıkarılabilir Aygıtlar) | Takıp çıkardığınız **USB belleklerin, harici disklerin veya CD'lerin** otomatik olarak bağlandığı (mount edildiği) kapıdır. |
+| **`/mnt`** | Mount (Geçici Bağlantılar) | Sistem yöneticilerinin **harici dosya sistemlerini veya diskleri geçici olarak bağlamak** için kullandığı özel istasyondur. |
+| **`/opt`** | Optional (İsteğe Bağlı) | Standart paket yöneticisiyle gelmeyen, **üçüncü parti büyük yazılımların** (Google Chrome, Zoom vb.) kurulduğu yerdir. |
+| **`/proc`** | Process (Sanal Süreçler) | Fiziksel diskte yer almayan, **RAM üzerinde yaşayan** ve anlık sistem/donanım durumunu gösteren sanal bilgi panosudur. |
+| **`/root`** | Root'un Evi | Sistemdeki tüm yetkilere sahip süper kullanıcının (**root**) kendi kişisel ev dizinidir. |
+| **`/run`** | Runtime (Çalışma Zamanı) | Sistem açıldığından beri üretilen **geçici çalışma zamanı verilerinin ve servis kilitlerinin** (PID dosyaları vb.) tutulduğu alandır. |
+| **`/sbin`** | System Binaries (Yönetici Komutları) | Sadece sistem yöneticisinin (**root**) çalıştırabileceği ağ ve disk yönetim komutlarını (fdisk, reboot vb.) barındırır. |
+| **`/srv`** | Service (Servis Verileri) | Bu sunucu üzerinden dış dünyaya sunulan **web, FTP veya veritabanı verilerinin** saklandığı merkezdir. |
+| **`/sys`** | System (Sistem Bilgileri) | Çekirdeğin donanımla nasıl konuştuğunu yöneten, **donanım ayarlarını anlık değiştirmeye yarayan** sanal arayüzdür. |
+| **`/tmp`** | Temporary (Geçici Dosyalar) | Programların işleri bitene kadar kullandığı, **bilgisayar yeniden başladığında otomatik silinen** hurdalıktır. |
+| **`/usr`** | Unix System Resources (Kullanıcı Kaynakları) | Günlük kullandığınız tüm büyük programların (Python, Git vb.), kütüphanelerin ve belgelerin saklandığı **en büyük sistem deposudur**. |
+| **`/var`** | Variable (Değişken Veriler) | Sürekli büyüyen ve değişen **günlük kayıtlarının (loglar), veritabanlarının ve e-postaların** biriktiği yerdir. |
+
+- echo $PATH
+- which *komut*
+- export PATH=$PATH:/home/ec2-user/hp/bin (Makine restart edilince sıfırlanır.)
+- Engellemek için;
+    - echo 'export PATH=$PATH:/home/ec2-user/hp/bin' >> ~/.zshrc
+    - source ~/.zshrc
