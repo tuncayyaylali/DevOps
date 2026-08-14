@@ -135,3 +135,9 @@
 - `cat /etc/passwd` (Yeni eklenen kullanıcıları ve parolalarını gösterir.)
 - `sudo useradd tuncayyaylali` `sudo passwd tuncayyaylali` `su tuncayyaylali`
 - `sudo` komutunu kullanabilmek için kullanıcının `sudoers` dosyasına eklenmiş olması gerekmektedir. 
+- `sudo su` (Root' a geçer.)
+- `groups` 
+    - *hp adm cdrom sudo dip plugdev users docker*
+- `groups hp`
+- `sudo usermod -a -G ec2-user hp`
+- `sudo usermod -aG wheel tuncayyaylali` (KUllanıcı otomatik olarak sudoers' a eklenir.)
