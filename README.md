@@ -127,3 +127,8 @@
 
 ![alt text](images/image3.png)
 
+- `chmod g-w deneme.sh`
+- `chmod 755 deneme.sh`
+- `chmod o=r deneme.sh` (Explicit hak verir. Diğer haklar aynı kalır.)
+- `umask` `umask 000` (Kullanıcılara varsayılan izin atamalarını atar ve gösterir.)
+
