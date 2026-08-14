@@ -1,4 +1,5 @@
 # DevOps Eğitimi
+
 ## Ders 1 (12.08.2026)
 - AWS Hesap Açma
 - AWS Üzerinde Instance Oluşturulması 
@@ -37,8 +38,7 @@
 | **Performans** | Daha az veri yolu | Devasa veri işleme kapasitesi |
 | **Yazılım Uyumluluğu** | Sadece 32-bit programlar | Hem 32-bit hem 64-bit programlar |
 
-- x86, x64 ev ARM64 ne demektir.?
-    
+- x86, x64 ev ARM64 ne demektir.?    
     x86, x64 ve ARM64, bilgisayarların, telefonların ve diğer elektronik cihazların işlemcilerinin (CPU) kullandığı komut seti mimarileridir. İşlemcinin yazılımlarla nasıl iletişim kuracağını ve komutları nasıl işleyeceğini belirlerler.
     - x86 (32-bit Mimari)
         - Ne Demek? Intel'in 1978'de geliştirdiği 8086 işlemci ailesine dayanan ve yıllar içinde 32-bit olarak standartlaşan mimaridir.
@@ -147,3 +147,11 @@
     - `sudo chmod g-s dizin_adi`
 - Sitcky Bit `sudo chmod +t dizin_adi` (Herkese yazma izni verilmiş ortak dizinlerde (örn. /tmp), bir dosyayı sadece o dosyanın sahibinin, dizin sahibinin veya root'un silebilmesini kısıtlayarak güvenliği sağlar.)
     - `sudo chmod -t dizin_adi`
+
+## Ders 3 (14.08.2026)
+- `cat /etc/group` (Tüm grupları listeler.)
+    - Grup Adı:Parola:Group ID
+    - Parole için `cat /etc/shadow`
+- `usermod -aG group_name user_name` (Kullanıcıyı gruba ekler.) 
+- `chgrp osman deneme.txt` (deneme.txt dosyasının grubu osman olarak değiştirildi.)
+- `chownn root deneme.txt` (deneme.txt dosyasının sahibi root olur.)
