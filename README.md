@@ -15,14 +15,14 @@
     - Kernel
 - Kernel nedir? (1:40:00): Uygulama donanımı kullanacaksa Kernel' a System Call gönderir.
 
-![alt text](/images/image.png) 
+![alt text](/images/image1.png)
 
 - Linux Distros (1:58:00)
     - Paketleme yöntemleri farklı. 
     - Debian ailesi deb kullanıyor.
     - Slackware ve RedHat rpm kullanıyor. 
 
-![alt text](/images/image-1.png)
+![alt text](/images/image2.png)
 
 - Kişisel kullanım için Ubuntu öneriliyor.
 - Enterprise kullanım için support ihtiyacı varsa RedHat öneriliyor.
@@ -56,13 +56,74 @@
 ## Ders 2 (13.08.2026)
 - Shell ve Terminal (21:39)
     - Terminal, kullanıcı ile işletim sistemi arasında görsel bir köprü kuran fiziksel bir cihaz veya günümüzdeki adıyla bir terminal emülatörüdür (örneğin macOS'teki Terminal veya Linux'teki GNOME Terminal); temel görevi klavyeden girilen karakterleri toplamak, ekranda göstermek ve arka plandaki yazılıma iletmektir. Buna karşılık shell (kabuk) ise, işletim sisteminin çekirdeğiyle doğrudan iletişim kurarak komutlarınızı yorumlayan bir komut yorumlayıcısıdır (örneğin Bash, Zsh veya PowerShell). Özetle; terminal klavyeden basılan tuşları ekrana yansıtıp girdi/çıktı işlemlerini yöneten pencere veya arayüzü oluştururken, shell bu pencereye yazdığınız komutları anlamlandırıp işletim sisteminde çalıştıran ve kendi betik dili bulunan beyin görevini üstlenir.
-- ec2-user@ip-72-31-1-144 ~ (user@bilgisayar_adi mevcut konum)
-- cd / (Roota gider.)
+- `ec2-user@ip-72-31-1-144 ~` (user@bilgisayar_adi mevcut konum)
+- `cd /` (Roota gider.)
 - **Binary Dosya**: Verilerin doğrudan bilgisayarın anlayacağı şekilde ikili sistem (0 ve 1'ler) formatında saklandığı, düz metin editörleriyle (Notepad gibi) açıldığında anlaşılmaz karakterler gösteren dosyalardır. Resimler, müzikler,çalıştırılabilir programlar (.exe vb.) ve sıkıştırılmış dosyalar bu türe girer.
-- rmdir (Boş klaösürü silmek için kullanılır.)
-- rm -rf (Dolu klasörü silmek için kullanılır.)
-- ls --help (Komut için yardım dosyalarını açar.)
-- man ls (Komut için yardım dosyalarını açar. Çıkmak için q)
-- cp deneme1 deneme2 (deneem1 dosya içeriğini deneme2 dosyasına kopyalar.)
-- mv -i dosyaadi1 dosyaadi2 (İNteraktif modda dosya işlemi yapar.)
-- 
+- `rmdir` (Boş klaösürü silmek için kullanılır.)
+- `rm -rf` (Dolu klasörü silmek için kullanılır.)
+- `ls --help` (Komut için yardım dosyalarını açar.)
+- `man ls` (Komut için yardım dosyalarını açar. Çıkmak için q)
+- `cp deneme1 deneme2` (deneem1 dosya içeriğini deneme2 dosyasına kopyalar.)
+- `mv -i` dosyaadi1 dosyaadi2 (İNteraktif modda dosya işlemi yapar.)
+
+| Dizin | Adı / Anlamı | Özel ve Akılda Kalıcı Açıklaması |
+| --- | --- | --- |
+| **`/`** | Kök (Root) Dizin | Bütün sistemin doğduğu ve diğer her şeyin dallandığı **evrenin başlangıç noktasıdır**. |
+| **`/bin`** | Binaries (Komutlar) | Sistem yöneticisinin ve kullanıcıların sistemin açılması veya kurtarılması için ihtiyaç duyduğu **temel komutları** (ls, cp, bash vb.) saklar. |
+| **`/boot`** | Boot (Açılış) Dosyaları | Bilgisayarın açılmasını sağlayan çekirdek (**kernel**) ve önyükleyici (**GRUB**) dosyalarının evidir. |
+| **`/dev`** | Devices (Donanımlar) | Sabit diskler, klavye ve USB bellek gibi **tüm fiziksel donanımların birer dosya olarak temsil edildiği** özel alandır. |
+| **`/etc`** | Editable Text Configurations (Ayarlar) | Sistemdeki tüm programların ve kullanıcıların **ayar dosyalarının (konfigürasyonların)** toplandığı metin merkezidir. |
+| **`/home`** | Ev Sahipleri (Kullanıcılar) | Sizin ve diğer kullanıcıların **kişisel dosyalarının, masaüstünün ve indirmelerinin** tutulduğu özel yaşam alanıdır. |
+| **`/lib`** | Libraries (Kütüphaneler) | `/bin` ve `/sbin` içindeki programların çalışmak için ihtiyaç duyduğu **ortak kod kütüphanelerinin** bulunduğu yerdir. |
+| **`/media`** | Medya (Çıkarılabilir Aygıtlar) | Takıp çıkardığınız **USB belleklerin, harici disklerin veya CD'lerin** otomatik olarak bağlandığı (mount edildiği) kapıdır. |
+| **`/mnt`** | Mount (Geçici Bağlantılar) | Sistem yöneticilerinin **harici dosya sistemlerini veya diskleri geçici olarak bağlamak** için kullandığı özel istasyondur. |
+| **`/opt`** | Optional (İsteğe Bağlı) | Standart paket yöneticisiyle gelmeyen, **üçüncü parti büyük yazılımların** (Google Chrome, Zoom vb.) kurulduğu yerdir. |
+| **`/proc`** | Process (Sanal Süreçler) | Fiziksel diskte yer almayan, **RAM üzerinde yaşayan** ve anlık sistem/donanım durumunu gösteren sanal bilgi panosudur. |
+| **`/root`** | Root'un Evi | Sistemdeki tüm yetkilere sahip süper kullanıcının (**root**) kendi kişisel ev dizinidir. |
+| **`/run`** | Runtime (Çalışma Zamanı) | Sistem açıldığından beri üretilen **geçici çalışma zamanı verilerinin ve servis kilitlerinin** (PID dosyaları vb.) tutulduğu alandır. |
+| **`/sbin`** | System Binaries (Yönetici Komutları) | Sadece sistem yöneticisinin (**root**) çalıştırabileceği ağ ve disk yönetim komutlarını (fdisk, reboot vb.) barındırır. |
+| **`/srv`** | Service (Servis Verileri) | Bu sunucu üzerinden dış dünyaya sunulan **web, FTP veya veritabanı verilerinin** saklandığı merkezdir. |
+| **`/sys`** | System (Sistem Bilgileri) | Çekirdeğin donanımla nasıl konuştuğunu yöneten, **donanım ayarlarını anlık değiştirmeye yarayan** sanal arayüzdür. |
+| **`/tmp`** | Temporary (Geçici Dosyalar) | Programların işleri bitene kadar kullandığı, **bilgisayar yeniden başladığında otomatik silinen** hurdalıktır. |
+| **`/usr`** | Unix System Resources (Kullanıcı Kaynakları) | Günlük kullandığınız tüm büyük programların (Python, Git vb.), kütüphanelerin ve belgelerin saklandığı **en büyük sistem deposudur**. |
+| **`/var`** | Variable (Değişken Veriler) | Sürekli büyüyen ve değişen **günlük kayıtlarının (loglar), veritabanlarının ve e-postaların** biriktiği yerdir. |
+
+- `echo $PATH`
+- `which komut`
+- `export PATH=$PATH:/home/ec2-user/hp/bin` (Makine restart edilince sıfırlanır.)
+- Engellemek için;
+    - `echo 'export PATH=$PATH:/home/ec2-user/hp/bin' >> ~/.zshrc`
+    - `source ~/.zshrc`
+
+## Ders 3 (13-14.08.2026)
+- Soft Link (05:43) (Asıl dosya silinirse soft  link silinmez.)
+    - `ln -s /home/ec2-user/username/hedef.txt linkimiz.txt`
+- Hard Link (Asıl dosya silinirse hard link silinir.)
+    - `ln /home/ec2-user/username/hedef.txt linkimiz.txt`   
+- `unlink linkimiz.txt` (Soft linkin silinmesdir.)
+- `rm linkimiz.txt` (Sadece hard linki siler. Hedef dosyayı silmez.)
+- `find /etc -name conf*`
+- `find /etc -iname conf* -ls` (Case sensitive arama yapar.)
+    - *6140202344      0 drwxr-xr-x   2 root     root            0 Apr 10 07:18 /snap/core24/1643/usr/share/terminfo/a*
+    - *3759937345      0 drwxr-xr-x   2 root     root            0 Apr 10 15:14 /snap/core20/2866/usr/lib/terminfo/a*
+- `find . -mtime +10` (10 günden eski dosyaları bular.)
+- `find . -size +1M` (Dosya boyutuna göre arama yapar.)
+- `fİnd . -type d -newer hedef.txt` (hedef.txt' den daha yeni dosyaları bulur.)
+- `less dosya_ismi`
+- `head -2 dosya_ismi`
+- `tail -2 dosya_ismi`
+- `tail -f dosya_ismi`
+- `find . -iname config -exec cat {} \;`
+- `vim dosya_ismi` (to show line numbers: `ESC + :set nu + Enter` to quit: `ESC + :wq + Enter`)
+- `nano dosya_ismi`
+- `diff dosya_ismi dosya_ismi`
+- `vimdiff dosya_ismi dosya_ismi` (vim üzerinde gösterir.)
+- `sdiff dosya_ismi dosya_ismi` (Shell üzerinde gösterir.)
+- `grep -i özgür dosya_ismi` (Case sensitive arama yapar.)
+- `grep -ic özgür dosya_ismi` (Case sensitive arama yapar bulunduğu satırları gösterir.)
+- `grep -iv özgür dosya_ismi` (Case sensitive arama yapar bulunmadığı satırları gösterir.)
+- `grep -n özgür dosya_ismi` (Bulunduğu satır numarası ve sonucu  gösterir.)
+- Dosya İzinleri (1:23:00) 
+
+![alt text](images/image3.png)
+
