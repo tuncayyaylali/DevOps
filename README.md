@@ -140,4 +140,10 @@
     - *hp adm cdrom sudo dip plugdev users docker*
 - `groups hp`
 - `sudo usermod -a -G ec2-user hp`
-- `sudo usermod -aG wheel tuncayyaylali` (KUllanıcı otomatik olarak sudoers' a eklenir.)
+- `sudo usermod -aG wheel tuncayyaylali` (Kullanıcı otomatik olarak sudoers' a eklenir.)
+- SUID `sudo chmod u+s dosya_adi` (Normal bir kullanıcının, geçici olarak dosyanın sahibinin yetkileriyle (genellikle root) program çalıştırmasını sağlar.)
+    - `sudo chmod u-s dosya_adi`
+- SGID `sudo chmod g+s dizin_adi` (Bir dizine uygulandığında, o dizin içinde oluşturulan yeni dosyaların grup sahibinin oluşturan kişinin bireysel grubu değil, üst dizinin grup sahibi olmasını sağlar. Ortak çalışma alanları için idealdir.)
+    - `sudo chmod g-s dizin_adi`
+- Sitcky Bit `sudo chmod +t dizin_adi` (Herkese yazma izni verilmiş ortak dizinlerde (örn. /tmp), bir dosyayı sadece o dosyanın sahibinin, dizin sahibinin veya root'un silebilmesini kısıtlayarak güvenliği sağlar.)
+    - `sudo chmod -t dizin_adi`
