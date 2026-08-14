@@ -131,4 +131,7 @@
 - `chmod 755 deneme.sh`
 - `chmod o=r deneme.sh` (Explicit hak verir. Diğer haklar aynı kalır.)
 - `umask` `umask 000` (Kullanıcılara varsayılan izin atamalarını atar ve gösterir.)
-
+- `cat /etc/default/useradd` (Yeni eklenen kullanıcıların varsayılan izinlerini gösterir.)
+- `cat /etc/passwd` (Yeni eklenen kullanıcıları ve parolalarını gösterir.)
+- `sudo useradd tuncayyaylali` `sudo passwd tuncayyaylali` `su tuncayyaylali`
+- `sudo` komutunu kullanabilmek için kullanıcının `sudoers` dosyasına eklenmiş olması gerekmektedir. 
