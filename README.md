@@ -148,7 +148,7 @@
 - Sitcky Bit `sudo chmod +t dizin_adi` (Herkese yazma izni verilmiş ortak dizinlerde (örn. /tmp), bir dosyayı sadece o dosyanın sahibinin, dizin sahibinin veya root'un silebilmesini kısıtlayarak güvenliği sağlar.)
     - `sudo chmod -t dizin_adi`
 
-## Ders 3 (14-15.08.2026)
+## Ders 4 (14-15.08.2026)
 - `cat /etc/group` (Tüm grupları listeler.)
     - Grup Adı:Parola:Group ID
     - Parole için `cat /etc/shadow`
@@ -179,3 +179,29 @@
     - `tar -zxf gonder.tgz dosyalar/` (Sıkıştırılmış ve arşivlenmiş dosyaları açar.)
  - `alias` Uygulaması (1:02:00)
     - `alias bd="echo 'Bu bir denemedir.'"`
+    - `alias up='sudo apt-get update && sudo apt-get upgrade -y'`
+- Environment Variables (1:12:00)
+    - `key=value`
+    - `echo $key` (Session bazlı oluşur.)
+    - `export osman=bir` (Global bazlı oluşur.)
+    - `echo $osman`
+    - `printenv`
+    - `unset osman`
+    - `printenv osman`
+    - `printenv $PS1`
+
+![alt text](images/image4.png)
+
+- `history`
+- `echo $HISTSIZE` (KOmut geçmişi boyutunu verir. `unset` ile değiştirilebilir.)
+- `cat .bash_history` (Komut geçmişi tutan dosyadır.)
+- `!!` (Son komutu tekrarlar.)
+- `!10` (10. komutu tekrarlar.)
+- `!echo` (`echo` geçen komutu getirir.)
+- `Ctrl+R + "..."`
+- `history -c` (Komut geçmişini siler.)
+- Komutun başında bir boşluk bırakılırsa komut geçmişine kaydetmez. Bunun için `export HISTCONTROL=ignorespace` demek gerekir.
+- `echo "osman" # Bundan sonra yazılan işlenmeyecektir.`
+- `\` (Kaçış karekteridir.)
+- `/etc/profile` işlenir. Sonra login olunduysa `.bash_profile` ve login olunmadıysa `.bashrc` işlenir. Ama artık sadece `.bashrc` işleniyor.
+- `batcat ~/.zshrc`
