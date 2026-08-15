@@ -148,10 +148,34 @@
 - Sitcky Bit `sudo chmod +t dizin_adi` (Herkese yazma izni verilmiş ortak dizinlerde (örn. /tmp), bir dosyayı sadece o dosyanın sahibinin, dizin sahibinin veya root'un silebilmesini kısıtlayarak güvenliği sağlar.)
     - `sudo chmod -t dizin_adi`
 
-## Ders 3 (14.08.2026)
+## Ders 3 (14-15.08.2026)
 - `cat /etc/group` (Tüm grupları listeler.)
     - Grup Adı:Parola:Group ID
     - Parole için `cat /etc/shadow`
 - `usermod -aG group_name user_name` (Kullanıcıyı gruba ekler.) 
 - `chgrp osman deneme.txt` (deneme.txt dosyasının grubu osman olarak değiştirildi.)
 - `chownn root deneme.txt` (deneme.txt dosyasının sahibi root olur.)
+- stdin, stdout & stderr (20:00)
+    - `echo "Deneme" > deneme.txt` (Yazar.)
+    - `echo "Deneme" >> deneme.txt` (Append eder.)
+    - `sort < cat deneme.txt`
+    - `cat deneme.txt | sort | head -2 >> deneme.txt` 
+    - `echo "deneme" ; cat deneme.txt ; echo "deneme"` \
+        *deneme \
+        Deneme Deneme \
+        deneme*
+    - `echo "osman" && echo "osman"` (Sol hata vermez ise sağ çalışır.)
+    - `echo "osman" || echo "osman"` (Sol hata verirse sağ çalışır.)
+- `tar` Uygulaması (47:00)
+    - `tar -cf gonder.tar dosyalar/` (Arşiv dosyası hazırlar.)
+    - `tar -tf gonder.tar` (Arşiv içerisine bakar.)
+    - `tar -xf ../gonder.tar ` (Arşivi açar.)
+- `du -h dosya_ismi` (Disk kullanımını gösterir.)
+- `gzip` Uygulaması (55:00)
+    - `gzip gonder.tar` (Dosyayı sıkıştırır.)
+    - `du -h gonder.tar.gz`
+    - `gunzip gonder.tar.gz` (Sıkıştırılmış dosyaları açar.)
+    - `tar -zcf gonder.tgz dosyalar/` (Dosyaları hem sıkıştırır hem arşivler.)
+    - `tar -zxf gonder.tgz dosyalar/` (Sıkıştırılmış ve arşivlenmiş dosyaları açar.)
+ - `alias` Uygulaması (1:02:00)
+    - `alias bd="echo 'Bu bir denemedir.'"`
