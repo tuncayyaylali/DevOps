@@ -108,7 +108,7 @@
     - *3759937345      0 drwxr-xr-x   2 root     root            0 Apr 10 15:14 /snap/core20/2866/usr/lib/terminfo/a*
 - `find . -mtime +10` (10 günden eski dosyaları bular.)
 - `find . -size +1M` (Dosya boyutuna göre arama yapar.)
-- `fİnd . -type d -newer hedef.txt` (hedef.txt' den daha yeni dosyaları bulur.)
+- `find . -type d -newer hedef.txt` (hedef.txt' den daha yeni dosyaları bulur.)
 - `less dosya_ismi`
 - `head -2 dosya_ismi`
 - `tail -2 dosya_ismi`
@@ -229,10 +229,10 @@
     - `ps -e --forest` (Tree şeklinde gösterir.)
     - `pstree -p`
     - `top` veya `htop`
-- Signals (33:50)
 
 ![alt text](images/image5.png)
 
+- Signals (33:50)
     - `./loopscript.sh &` (Programı background' da çalışır.)
         - [1] 48234
         - JobID ve ProcessID
