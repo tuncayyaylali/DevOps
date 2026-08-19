@@ -237,7 +237,7 @@
         - [1] 48234
         - JobID ve ProcessID
     - `jobs` (Background' ta çalışan programları gösterir.)
-    - `fg %JobID` (ÇAlışan programı yeniden groueground' a alır.)
+    - `fg %JobID` (Çalışan programı yeniden foreground' a alır.)
     - `./loopscript.sh > /dev/null &`
     - `kill ProcessID` (SIGTERM sinyali gönderir.)
     - `kill -9 ProcessID` (SIGKILL sinyali gönderir.)
@@ -251,7 +251,7 @@
 
 ![alt text](images/image7.png)
 
-![](images/image8.png)
+![alt text](images/image8.png)
 
 - Cron Job
     - `crontab -e`
