@@ -205,3 +205,86 @@
 - `\` (Kaçış karekteridir.)
 - `/etc/profile` işlenir. Sonra login olunduysa `.bash_profile` ve login olunmadıysa `.bashrc` işlenir. Ama artık sadece `.bashrc` işleniyor.
 - `batcat ~/.zshrc`
+- `sudo visudo /etc/sudoers` (`sudo` yetkisine sahip kullanıcıları düzenlemek için kullanılır. )
+
+## Ders 5 (16-19.08.2026)
+- `ls -al 1> deneme` (`stdin`' i deneme dosyasına yönlendir.)
+- `ls -l olmayanbirdosya 2> deneme` (`stderr`' i deneme dosyasına gönderir.)
+- `komut > dosya.txt 2>&1`
+- `ls -al > /dev/null 2>&1` (Çıktıyı ve hatayı boşluğa gönderir.)
+- Proses Yönetimi (19:00)
+    - `ps -e` (Tüm prosesleri gödsterir.) \
+    *PID TTY          TIME CMD \
+    1 ?        00:00:01 systemd \
+    2 ?        00:00:00 init-systemd*
+    - `ps -f` (Prosesleri tam format gösterir.)\
+    *UID          PID    PPID  C STIME TTY          TIME CMD \
+    hp          1549    1542  0 12:20 pts/4    00:00:00 -zsh \
+    hp          1717    1549  0 12:34 pts/4    00:00:00 bash \
+    hp          1765    1717  0 12:34 pts/4    00:00:00 zsh \
+    hp          1948    1765  0 14:06 pts/4    00:00:00 ps -f*
+    - `ps -u tuncayyaylali` (Kullanıcımım proseslerini gösterir.)
+    - `ps -eH` (Tüm prosesleri tree şeklinde gösterir.)
+    - `ps -p 4184` (PID' si verilen prosesi gösterir.)
+    - `ps -e --forest` (Tree şeklinde gösterir.)
+    - `pstree -p`
+    - `top` veya `htop`
+- Signals (33:50)
+
+![alt text](images/image5.png)
+
+    - `./loopscript.sh &` (Programı background' da çalışır.)
+        - [1] 48234
+        - JobID ve ProcessID
+    - `jobs` (Background' ta çalışan programları gösterir.)
+    - `fg %JobID` (ÇAlışan programı yeniden groueground' a alır.)
+    - `./loopscript.sh > /dev/null &`
+    - `kill ProcessID` (SIGTERM sinyali gönderir.)
+    - `kill -9 ProcessID` (SIGKILL sinyali gönderir.)
+
+![alt text](images/image6.png)
+
+- Process Exit Codes (52:00)  
+    - Prosesler kapanınca exit codes üretir.
+    - `echo $?` (Son çalışan prosesin exit code' unu verir.)
+    - 128+n olduğu zaman 128 üzerine kaç eklendi ise onunla exit olmuştur.
+
+![alt text](images/image7.png)
+
+![](images/image8.png)
+
+- Cron Job
+    - `crontab -e`
+    - `crontab -l`
+    - `crontab -d`
+
+- Systems
+    - Linux' ta executable dosyalara program denir.
+    - Programın çalışan haline proses denir.
+    - Çalışmaya devam eden proseslere daemon/servis denir.
+    - Bir programın çalışması için gerekli tüm dosyalara uygulama denir.
+    - Bir uygulamanın çalışması için gereken tüm dosyaların, talimatların ve bilgilerin tek bir arşiv dosyası içinde paketlenmiş halidir.
+    - Linux' ta paketlerle işlem yapmamızı sağlayan ise Packet Manager' dir.
+
+![alt text](images/image9.png)
+
+- Servis Yönetini (1:33:00)
+    - `Power On` (Bilgisayar açılır ve elektriksel kontroller yapılır.)
+    - `BIOS/UEFI` (Donanımlar (RAM, disk vb.) kontrol edilir ve işletim sisteminin nerede aranacağı belirlenir.)
+    - `MBR/GPT` (Diskin başlangıç alanı okunarak bilgisayarı başlatacak ilk küçük program çalıştırılır.)
+    - `GRUB/GRUB2` (Hangi işletim sisteminin başlatılacağını seçmenizi sağlayan ekran devreye girer ve Linux çekirdeğini belleğe (RAM) yükler.)
+    - `Kernel` (Linux'un kalbi yüklenir; donanım ile işletim sistemi arasındaki temel iletişimi başlatır.)
+    - `initd/systemd` (Sistemdeki arka plan servislerini, ağ bağlantılarını ve temel bileşenleri sırayla ayağa kaldırır.)
+    - `login` (Her şey hazır olduğunda kullanıcı adı ve şifrenizi girerek sisteme giriş yapmanızı sağlayan ekran gelir.)
+
+    1. **Power On (Işıkların Şefi):** Salonun ana şalteri indirilir, binaya ilk elektrik verilir ve her şeyin çalışıp çalışmadığına bakılır.
+    2. **BIOS / UEFI (Kılavuz Harita):** Sahne yöneticisi elindeki plana bakar; ışıklar, ses sistemi ve kulisler yerinde mi diye hızlıca kontrol eder ve gösterinin nerede saklı olduğunu bulur.
+    3. **MBR / GPT (Sahne Kapısının Anahtarı):** Sahnenin gizli kapısını açacak olan ilk anahtar çevrilir ve içeriye giden asıl yol aydınlatılır.
+    4. **GRUB / GRUB2 (Perde Seçici):** Sahne önüne gelen rejisör, seyirciye "Bugün hangi oyun sahnelenecek?" diye sorar ve seçilen Linux oyununu (veya perdesini) sahneye taşır.
+    5. **Kernel / Çekirdek (Yönetmen):** Gösterinin baş yönetmeni sahneye çıkar; oyuncuları (donanımları), ışıkları ve dekoru birbirine bağlayarak fabrikanın kalbini attırır.
+    6. **Initd / Systemd (Ekip Lideri):** Yönetmenin emriyle arka plandaki tüm teknik ekip (servisler, güvenlik, temizlik) yerini alır, ses ve ışık sistemlerini kusursuzca çalışır hale getirir.
+    7. **Login (Perdenin Açılması):** Tüm hazırlıklar biter, salon aydınlanır ve perde açılır; artık biletli konuk (kullanıcı) içeri girip yerini alabilir.
+
+    - `sudo systemctl status`
+    - `sudo systemctl status systemd-journald.service`
+    - `sudo systemctl enable systemd-journald.service`
