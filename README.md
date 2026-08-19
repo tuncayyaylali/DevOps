@@ -288,3 +288,33 @@
     - `sudo systemctl status`
     - `sudo systemctl status systemd-journald.service`
     - `sudo systemctl enable systemd-journald.service`
+    - `sudo systemctl start systemd-journald.service`
+    - `sudo systemctl reatart systemd-journald.service`
+    - `sudo systemctl stop  systemd-journald.service`
+    - `sudo systemctl kill systemd-journald.service`
+    - `sudo systemctl reload  systemd-journald.service`
+    - `sudo systemctl daemon-reload`
+    - `systemd` hangi prosesin ne zaman ve nasıl çalıştırılacağını `unit` dosyalarından belirler.
+        - `ls -l /lib/systemd/system` veya `ls -l /usr/lib/systemd/system`
+        - `ls -l /run/systemd/system`
+        - `ls -l /etc/systemd/system`
+- Paket Yöneticisi
+    - RedHat' te rpm kullanılır.
+    - Debian' da deb kullanılır. 
+    - Tek tek paket uygulamaktansa uygulamaların repository' lerini kullanıyoruz.
+    - Package Manager (rpm)
+        - `yum install mysql`
+            - `yum search -y mysql`
+            - `yum install -y mysql`
+            - `yum remove -y mysql`
+        - `dnf install mysql`
+    - Package Manager (deb)
+        - `apt-get install mysql`
+            - `apt-get search -y mysql`
+            - `apt-get install -y mysql`
+            - `apt-get remove -y mysql`
+    - `cd /etc/yum.repos.d` (rpm için repository bilgileri var.)
+    - `cd /etc/apt/sources.list.d/ubuntu.sources` (deb için repository bilgileri var.)
+
+![alt text](images/image10.png)
+
