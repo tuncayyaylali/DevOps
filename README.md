@@ -428,3 +428,44 @@ Script'e dışarıdan gelen toplam argüman sayısı: 2
 Fonksiyonun hesapladığı çarpım sonucu: 3795
 ```
 
+```
+#!/bin/bash
+
+# 1. Görseldeki Dizi (Array) Tanımlama ve Kullanımı
+int=("1" "2" "3")
+
+echo "--- Dizi (Array) Örnekleri ---"
+echo "1. Eleman (Index 0): ${int[0]}"
+echo "2. Eleman (Index 1): ${int[1]}"
+echo "Tüm Elemanlar (@): ${int[@]}"
+echo "----------------------------------------"
+
+# 2. Sistem Tarihi ve jq Entegrasyonu
+# (jq kurulu değilse hata almamak için kontrol edebilir veya önce 'sudo apt install jq' çalıştırabilirsiniz)
+if command -v jq &> /dev/null; then
+    su_an=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    
+    echo "--- jq ile Tarih İşleme ---"
+    echo '{"tarih": "'"$su_an"'", "dizi_ilk_eleman": "'"${int[0]}"'"}' | jq '{
+        zaman: .tarih,
+        referans_deger: .dizi_ilk_eleman,
+        yil: .tarih[0:4]
+    }'
+else
+    echo "jq komutu bulunamadı. Tarih JSON çıktısı atlandı."
+fi
+```
+
+```
+--- Dizi (Array) Örnekleri ---
+1. Eleman (Index 0): 1
+2. Eleman (Index 1): 2
+Tüm Elemanlar (@): 1 2 3
+----------------------------------------
+--- jq ile Tarih İşleme ---
+{
+  "zaman": "2026-08-20T15:04:43Z",
+  "referans_deger": "1",
+  "yil": "2026"
+}
+```
