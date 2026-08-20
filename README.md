@@ -318,3 +318,113 @@
 
 ![alt text](images/image10.png)
 
+## Ders 6 (19-20.08.2026)
+- Bash Scripting
+    - `touch scr.sh`
+    - `#!/bin/bash` 
+    - `/bin/sh` (Bu da kullanılabilir.)
+    - `echo "Merhaba Dünya!"`
+    - `chmod +x scr.sh`
+    - `source scr.sh`
+    - `./scr.sh` veya `bash scr.sh`
+
+    - Birden fazla satırı yorum satırı yapmak için `: '...'` kullanılır.
+    - Pozisyonel Paranetreler
+
+```#!/bin/bash
+
+# En az 1 parametre girilip girilmediğini kontrol et
+if [ -z "$1" ]; then
+    echo "Hata: Hiçbir parametre girilmedi!"
+    echo "Kullanım: $0 <dosya_adi> [ek_parametreler...]"
+    exit 1
+fi
+
+echo "İşlenen ana dosya/değer: $1"
+echo "Toplam parametre sayısı: $#"
+echo "----------------------------------------"
+
+# Girilen tüm parametreleri sırayla dönen döngü
+echo "Girilen tüm parametreler listeleniyor:"
+sirano=1
+for parametre in "$@"; do
+    echo "  $sirano. parametre: $parametre"
+    ((sirano++))
+done
+```
+`./deneme.sh tuncay 1 3 manisa ankara`
+
+```
+İşlenen ana dosya/değer: tuncay
+Toplam parametre sayısı: 5
+----------------------------------------
+Girilen tüm parametreler listeleniyor:
+  1. parametre: tuncay
+  2. parametre: 1
+  3. parametre: 3
+  4. parametre: manisa
+  5. parametre: ankara
+```
+- Özel shell değişkenlerini (`$0`: script adı, `$#`: argüman sayısı, `$?`: son komutun çıkış kodu) ekrana yazdıran komutları içerir.
+```
+#!/bin/bash
+
+# 1. Komutun kendisini çalıştıralım ve durum kodunu görelim ($?)
+echo "Merhaba Dünya"
+# Başarılı olan son komutun çıkış kodunu kontrol et:
+echo "Son komutun çıkış kodu (\$?): $?"
+
+echo "----------------------------------------"
+
+# 2. Script adını yazdır ($0)
+echo "Bu script'in adı (\$0): $0"
+
+# 3. Argüman sayısını yazdır ($#)
+echo "Geçirilen toplam argüman sayısı (\$#): $#"
+```
+```
+hp@tuncay ~$ ./deneme.sh tuncay 1 3 manisa ankara
+Merhaba Dünya
+Son komutun çıkış kodu ($?): 0
+----------------------------------------
+Bu script'in adı ($0): ./deneme.sh
+Geçirilen toplam argüman sayısı ($#): 5
+```
+```
+#!/bin/bash
+
+# Kullanıcı eksik parametre girerse uyarı göster
+if [ $# -lt 2 ]; then
+    echo "Kullanım: $0 <sayi1> <sayi2>"
+    echo "Örnek: $0 40 15"
+    exit 1
+fi
+
+# Fonksiyon tanımlama (fonksiyon içinde pozisyonel parametre kullanımı)
+carpim_hesapla() {
+    local s1=$1
+    local s2=$2
+    local sonuc=$((s1 * s2))
+    echo $sonuc
+}
+
+echo "Script'e dışarıdan gelen toplam argüman sayısı: $#"
+echo "1. Parametre: $1"
+echo "2. Parametre: $2"
+echo "----------------------------------------"
+
+# Script'e dışarıdan verilen pozisyonel parametreleri fonksiyona argüman olarak gönderiyoruz
+hesaplanan_sonuc=$(carpim_hesapla "$1" "$2")
+
+echo "Fonksiyonun hesapladığı çarpım sonucu: $hesaplanan_sonuc"
+```
+
+```
+hp@tuncay ~$ ./deneme.sh 15 253
+Script'e dışarıdan gelen toplam argüman sayısı: 2
+1. Parametre: 15
+2. Parametre: 253
+----------------------------------------
+Fonksiyonun hesapladığı çarpım sonucu: 3795
+```
+
